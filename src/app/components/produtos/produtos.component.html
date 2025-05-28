@@ -1,0 +1,9 @@
+<section>
+    @for (produto of produtos; track produto.id) {
+        <div class="produto">
+            <h2>{{ produto.title }}</h2>
+            <p>$ {{ produto.price }}</p>
+            <button>Detalhes</button>
+        </div>
+    }
+</section>
