@@ -30,13 +30,14 @@ export class ProdutosServiceService {
       );
   }
 
+  //tratamento de erros
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Ocorreu um erro desconhecido';
     if (error.error instanceof ErrorEvent) {
-      // Erro do cliente
+      // erro no cliente
       errorMessage = `Erro: ${error.error.message}`;
     } else {
-      // Erro do servidor
+      // erro no servidor
       errorMessage = `Código do erro: ${error.status}, mensagem: ${error.message}`;
     }
     console.error(errorMessage);

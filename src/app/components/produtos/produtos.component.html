@@ -1,9 +1,17 @@
+<p *ngIf="loading">Carregando produtos...</p>
+<p *ngIf="error">{{ error }}</p>
 <section>
-    @for (produto of produtos; track produto.id) {
-        <div class="produto">
-            <h2>{{ produto.title }}</h2>
-            <p>$ {{ produto.price }}</p>
-            <button>Detalhes</button>
-        </div>
-    }
+  <div class="produtos" *ngFor="let produto of produtos">
+    <img [src]="produto.image" alt="{{ produto.title }}" width="100" />
+    <div class="textos">
+      <h3>{{ produto.title }}</h3>
+      <p>$ {{ produto.price }}</p>
+    </div>
+    <button class="button-3" (click)="mostrarDescricaoPorId(produto.id)">
+      {{ descricaoId === produto.id ? "Ocultar" : "Mostrar" }} Descrição
+    </button>
+    <p class="descricao" *ngIf="descricaoId === produto.id">
+      {{ produto.description }}
+    </p>
+  </div>
 </section>
